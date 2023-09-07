@@ -118,3 +118,54 @@ CREATE TABLE Orders (
   userId INT,
   FOREIGN KEY (userId) REFERENCES User(userId)
 );
+
+-- Manage Relationship
+CREATE TABLE Manage (
+  userid INT,
+  sid INT,
+  SetupTime TIMESTAMP,
+  PRIMARY KEY (userid, sid),
+  FOREIGN KEY (userid) REFERENCES Seller(userid),
+  FOREIGN KEY (sid) REFERENCES Store(sid)
+);
+
+-- Save to Shopping Cart Relationship
+CREATE TABLE Save_to_Shopping_Cart (
+  userid INT,
+  pid INT,
+  quantity INT,
+  addtime TIMESTAMP,
+  PRIMARY KEY (userid, pid),
+  FOREIGN KEY (userid) REFERENCES Buyer(userid),
+  FOREIGN KEY (pid) REFERENCES Product(pid)
+);
+
+-- Contain Relationship
+CREATE TABLE Contain (
+  orderNumber INT,
+  itemid INT,
+  quantity INT,
+  PRIMARY KEY (orderNumber, itemid),
+  FOREIGN KEY (orderNumber) REFERENCES Orders(orderNumber),
+  FOREIGN KEY (itemid) REFERENCES Item(itemid)
+);
+
+-- Deliver To Relationship
+CREATE TABLE Deliver_To (
+  addrid INT,
+  orderNumber INT,
+  TimeDelivered TIMESTAMP,
+  PRIMARY KEY (addrid, orderNumber),
+  FOREIGN KEY (addrid) REFERENCES Address(addrid),
+  FOREIGN KEY (orderNumber) REFERENCES Orders(orderNumber)
+);
+
+-- Payment Relationship
+CREATE TABLE Payment (
+  cardNumber VARCHAR(20),
+  orderNumber INT,
+  payTime TIMESTAMP,
+  PRIMARY KEY (cardNumber, orderNumber),
+  FOREIGN KEY (cardNumber) REFERENCES Credit_Card(cardNumber),
+  FOREIGN KEY (orderNumber) REFERENCES Orders(orderNumber)
+);
