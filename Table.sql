@@ -40,15 +40,6 @@ CREATE TABLE Bank_Card (
   FOREIGN KEY (userId) REFERENCES User(userId)
 );
 
--- Credit Card
-CREATE TABLE Credit_Card (
-  cardNumber VARCHAR(20),
-  userId INT NOT NULL,
-  organization VARCHAR(20),
-  PRIMARY KEY (cardNumber),
-  FOREIGN KEY (userId) REFERENCES User(userId)
-);
-
 -- Debit Card 
 CREATE TABLE Debit_Card (
   cardNumber VARCHAR(20),
