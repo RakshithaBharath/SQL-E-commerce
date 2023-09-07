@@ -1,16 +1,17 @@
 Entities
 ---------------------------------------------------------------------------------------------------------------
 User (userId, name, phoneNum)
-Buyer (userId)
-Seller (userId)
-Bank Card (cardNumber, userId, bank, expiryDate)
-Credit Card (cardNumber, organization)
-Debit Card (cardNumber)
+UserRole (roleId, roleName)
+Buyer (userId, roleId)
+Seller (userId, roleId)
+Bank_Card (cardNumber, userId, bank, expiryDate)
+Credit_Card (cardNumber, userId, organization)
+Debit_Card (cardNumber, userId, Bank_Card)
 Store (sid, name, startTime, customerGrade, streetAddr, city, province)
-Product (pid, sid, name, brand, type, amount, price, colour, customerReview, modelNumber)
-Order Item (itemid, pid, price, creationTime)
-Order (orderNumber, creationTime, paymentStatus, totalAmount)
+Product (pid, sid, name, brand, type_, price, colour, customerReview, modelNumber)
+Item (itemid, pid, price, creationTime)
 Address (addrid, userid, name, city, postalCode, streetAddr, province, contactPhoneNumber)
+Orders (orderNumber, creationTime, paymentStatus, totalAmount, userId)
 
 Relationships
 ---------------------------------------------------------------------------------------------------------------
