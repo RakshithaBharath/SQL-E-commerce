@@ -19,7 +19,7 @@ VALUES
   (2, 'Seller'),
   (3, 'Admin');
 
--- Insert Buyers
+-- Insert 10 Buyers
 INSERT INTO Buyer (userId, roleId)
 VALUES
   (1, 1),
@@ -30,7 +30,7 @@ VALUES
   (6, 1),
   (7, 1);
 
--- Insert Sellers
+-- Insert 10 Sellers
 INSERT INTO Seller (userId, roleId)
 VALUES
   (9, 2),
@@ -141,3 +141,72 @@ VALUES
   (9, 'Address9', 'City9', '90123', '606 Elm St', 'Province9', '+91-9999999999'),
   (10, 'Address10', 'City10', '01234', '707 Pine St', 'Province10', '+91-1010101010');
 
+-- Insert 10 Manage records (User managing Stores)
+INSERT INTO Manage (userid, sid, SetupTime)
+VALUES
+  (1, 1, NOW()),
+  (1, 2, NOW()),
+  (2, 1, NOW()),
+  (2, 3, NOW()),
+  (3, 2, NOW()),
+  (3, 3, NOW()),
+  (4, 1, NOW()),
+  (4, 2, NOW()),
+  (5, 3, NOW()),
+  (5, 1, NOW());
+
+-- Insert 10 "Save to Shopping Cart" records (User saving Products to Shopping Cart)
+INSERT INTO Save_to_Shopping_Cart (userid, pid, quantity, addtime)
+VALUES
+  (1, 1, 2, NOW()),
+  (1, 3, 1, NOW()),
+  (2, 2, 3, NOW()),
+  (2, 4, 2, NOW()),
+  (3, 5, 1, NOW()),
+  (3, 6, 4, NOW()),
+  (4, 7, 2, NOW()),
+  (4, 8, 3, NOW()),
+  (5, 9, 1, NOW()),
+  (5, 10, 2, NOW());
+
+-- Insert 10 "Contain" records (Orders containing Order Items)
+INSERT INTO Contain (orderNumber, itemid, quantity)
+VALUES
+  (1, 1, 2),
+  (1, 2, 1),
+  (2, 3, 3),
+  (2, 4, 2),
+  (3, 5, 1),
+  (3, 6, 4),
+  (4, 7, 2),
+  (4, 8, 3),
+  (5, 9, 1),
+  (5, 10, 2);
+
+-- Insert 10 "Deliver To" records (Address deliveries for Orders)
+INSERT INTO Deliver_To (addrid, orderNumber, TimeDelivered)
+VALUES
+  (1, 1, NOW()),
+  (2, 2, NOW()),
+  (3, 3, NOW()),
+  (4, 4, NOW()),
+  (5, 5, NOW()),
+  (6, 6, NOW()),
+  (7, 7, NOW()),
+  (8, 8, NOW()),
+  (9, 9, NOW()),
+  (10, 10, NOW());
+
+-- Insert 10 "Payment" records (Payments for Orders with Credit Cards)
+INSERT INTO Payment (cardNumber, orderNumber, payTime)
+VALUES
+  ('C111-1111-1111-1111', 1, NOW()),
+  ('C222-2222-2222-2222', 2, NOW()),
+  ('C333-3333-3333-3333', 3, NOW()),
+  ('C444-4444-4444-4444', 4, NOW()),
+  ('C555-5555-5555-5555', 5, NOW()),
+  ('C666-6666-6666-6666', 6, NOW()),
+  ('C777-7777-7777-7777', 7, NOW()),
+  ('C888-8888-8888-8888', 8, NOW()),
+  ('C999-9999-9999-9999', 9, NOW()),
+  ('C101-1010-1010-1010', 10, NOW());
